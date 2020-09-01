@@ -1,0 +1,52 @@
+<div class="row m-b-18px">
+  <div class="col-md-12">
+    <!-- button to create new product -->
+    <a routerLink="/products/create" class='btn btn-primary pull-right'>
+      <span class='glyphicon glyphicon-plus'></span> Create Product
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <!-- HTML table for our list of product records -->
+    <table class='table table-hovered table-bordered'>
+
+      <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>index</th>
+        <th>Actions</th>
+      </tr>
+
+      <!-- Use *ngFor directive to loop throught our list of products. -->
+      <tr *ngFor="let product of products;let i = index">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{i}}</td>
+        <td>
+          <!-- read one product button -->
+          <a [routerLink]="['/products/detail',product.id]" class='btn btn-primary m-r-5px'>
+            <span class='glyphicon glyphicon-eye-open'></span> Detail
+          </a>
+
+          <!-- edit product button -->
+          <a routerLink="/update/{{product.id}}" class='btn btn-info m-r-5px'>
+            <span class='glyphicon glyphicon-edit'></span> Edit
+          </a>
+
+          <!-- delete product button -->
+          <!-- <a href="javascript:void(0)" (click)="deleteProduct(product.id,i)" class='btn btn-danger m-r-5px'>
+            <span class='glyphicon glyphicon-remove'></span> Delete
+          </a> -->
+          <button  (click)="deleteProduct(product.id,i)" class='btn btn-danger m-r-5px'>
+            <span class='glyphicon glyphicon-remove'></span> Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

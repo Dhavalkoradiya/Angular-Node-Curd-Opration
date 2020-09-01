@@ -1,0 +1,26 @@
+<div class="row m-b-18px">
+    <div class="col-md-12">
+        <a routerLink='/products' class='btn btn-primary pull-right'>
+            <span class='glyphicon glyphicon-list'></span> Go to Products
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- HTML table for displaying a product details -->
+        <table class='table table-hovered table-bordered'>
+            
+            <tr>
+                <th class="w-40-pct">Name</th>
+                <td>{{product?.name}}</td>
+            </tr>
+ 
+            <tr>
+                <th>Price</th>
+                <td>&#36;{{product?.price}}</td>
+            </tr>
+ 
+        </table>
+    </div>
+</div>
